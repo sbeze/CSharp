@@ -1,0 +1,43 @@
+// - Random number generator in C#
+using System.Linq.Expressions;
+
+Random rnd = new Random();
+// random is a class that generates random numbers, rnd is the variable, new random() creates the number generator
+int number = rnd.Next(1, 10);
+// creates variable number, next gives a new random number (1 through 10 as specified)
+Console.WriteLine(number);
+// prints the number - should be removed but is here for testing purposes
+int guessednumber = 0;
+// sets guessednumber to zero, to give the while loop a reason to run
+while (guessednumber != number)
+    // creates a while loop until guessed number = number
+    {
+    try
+        // try is to begin where an exception may occur, it tries the block of code and stops immediately if an error occurs
+    {
+        Console.WriteLine("Guess a number 1-10");
+        guessednumber = Convert.ToInt32(Console.ReadLine()); // allows for a number to be guessed
+        if (guessednumber == number) 
+        {
+            Console.WriteLine("You guessed correctly!");
+        }
+        else if (guessednumber > number) // if the number they guessed is bigger, it notifies the user
+        {
+            Console.WriteLine("Number is larger");
+        }
+        else if (guessednumber < number ) // if the number they guessed is smaller, it notifies the user
+        {
+            Console.WriteLine("Number is smaller");
+        }
+    }
+    catch (System.FormatException)
+    // catch detects an error and runs code if the specific error is detected, this part catches a format exception/incorrect data type and tells the user
+    {
+        Console.WriteLine("Incorrect data was entered: ");
+    }
+    catch (Exception ex)
+    // this occurs is any error occurs other then a format exception is detected, and displays a exit message.
+    {
+        Console.WriteLine("An unknown error occurred: " + ex.Message);
+    }
+}
