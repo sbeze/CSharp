@@ -1,0 +1,161 @@
+using System.Linq; 
+// Imports sum() feature
+
+Console.WriteLine("How many values would you like to store?"); 
+// Outputs the user a question
+int values = Convert.ToInt32(Console.ReadLine()); 
+// allows the user to input a value to assign to 'values'
+for (int i = 0; i < 1;) 
+//starts a for loop (embeds i as 0 and repeats as long as i is smaller than 1)
+{
+    if (values >= 51) 
+    // determines whether the input was a number greater than 50
+    {
+        Console.WriteLine("Please enter a number 50 or below"); 
+        // Outputs an error if a number greater then 50 is entered
+        values = Convert.ToInt32(Console.ReadLine()); 
+        // takes a second input for values 
+    }
+    else 
+    // if a number 50 or smaller was entered 
+    {
+        Console.WriteLine("Now please enter your numbers"); 
+        // Outputs that the user now needs to enter their numbers 
+        i = i + 1; 
+        // breaks the loop as no error is detected
+    }
+}
+int[] ints = new int[values]; 
+// opens an integer array with room for 'values' values
+for (int i = 0; i < values; i++) 
+    // starts a for loop with i as 0 and repeats while i is smaller then values, then increments i
+{
+    Console.WriteLine("Please enter number " + i); 
+    // asks user to enter the number to be assigned to the space 'i' in the array
+    ints[i] = Convert.ToInt32(Console.ReadLine()); 
+    // assigns the number to space 'i'
+}
+Console.WriteLine("What would you now like to do with your stored values?" + Environment.NewLine + "1: Multiply" + Environment.NewLine + "2: Divide" + Environment.NewLine + "3: Add" + Environment.NewLine + "4: Subtract" + Environment.NewLine + "5: Sum");
+// Output asking user which operation they would like to use 
+int operation = Convert.ToInt32(Console.ReadLine()); 
+// takes the user input 
+if (operation == 1) 
+//detects whether operation is equal to 1
+{
+    Console.WriteLine("Which two values would you like to multiply? " + "There are currently " + values + " values stored");
+    //Outputs question of which values need to be multiplied, alongside telling the user how many values are currently stored
+    int v1 = Convert.ToInt32(Console.ReadLine());
+    // takes a user input for the first value
+    while (v1 >= values)
+    // opens a while loop while v1 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // Outputs to the user that an invalid value was input, alongside the parameter in which they must follow
+        v1 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v1, until a valid value is entered
+    }
+    int v2 = Convert.ToInt32(Console.ReadLine());
+    // alows an input for value 2
+    while (v2 >= values)
+    // establishes the while loop to detect whether v2 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // outputs that an invalid value was input, alongside the parameter in which they must follow
+        v2 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v2, until a valid value is entered
+    }
+    Console.WriteLine("Your answer is: " + (ints[v1] * ints[v2]));
+    // multiplies v1 by v2 displayed in an output
+}
+else if (operation == 2)
+// Detects if operation is equal to 2
+{
+    Console.WriteLine("Which two values would you like to divide" + "There are currently" + values + "values stored");
+    //Outputs question of which values need to be divided, alongside telling the user how many values are currently stored
+    int v1 = Convert.ToInt32(Console.ReadLine());
+    // takes a user input for the first value
+    while (v1 >= values)
+    // opens a while loop while v1 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // Outputs to the user that an invalid value was input, alongside the parameter in which they must follow
+        v1 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v1, until a valid value is entered
+    }
+    int v2 = Convert.ToInt32(Console.ReadLine());
+    // alows an input for value 2
+    while (v2 >= values)
+    // establishes the while loop to detect whether v2 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // outputs that an invalid value was input, alongside the parameter in which they must follow
+        v2 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v2, until a valid value is entered
+    }
+    Console.WriteLine("Your answer is: " + (ints[v1] / ints[v2]));
+    // divides v1 by v2 displayed in an output
+}
+else if (operation == 3)
+// detects whether operation equals 3
+{
+    Console.WriteLine("Which two values would you like to Add" + "There are currently" + values + "values stored");
+    //Outputs question of which values need to be divided, alongside telling the user how many values are currently stored
+    int v1 = Convert.ToInt32(Console.ReadLine());
+    // takes a user input for the first value
+    while (v1 >= values)
+    // opens a while loop while v1 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // Outputs to the user that an invalid value was input, alongside the parameter in which they must follow
+        v1 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v1, until a valid value is entered
+    }
+    int v2 = Convert.ToInt32(Console.ReadLine());
+    // alows an input for value 2
+    while (v2 >= values)
+    // establishes the while loop to detect whether v2 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // outputs that an invalid value was input, alongside the parameter in which they must follow
+        v2 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v2, until a valid value is entered
+    }
+    Console.WriteLine("Your answer is: " + (ints[v1] + ints[v2]));
+    // Adds v1 and v2 and outputs them
+}
+else if (operation == 4)
+// detects whether operation equals 4
+{
+    Console.WriteLine("Which two values would you like to Subtract" + "There are currently" + values + "values stored");
+    //Outputs question of which values need to be divided, alongside telling the user how many values are currently stored
+    int v1 = Convert.ToInt32(Console.ReadLine());
+    // takes a user input for the first value
+    while (v1 >= values)
+    // opens a while loop while v1 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // Outputs to the user that an invalid value was input, alongside the parameter in which they must follow
+        v1 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v1, until a valid value is entered
+    }
+    int v2 = Convert.ToInt32(Console.ReadLine());
+    // alows an input for value 2
+    while (v2 >= values)
+    // establishes the while loop to detect whether v2 is greater than or equal to values
+    {
+        Console.WriteLine("Please enter a valid value, 0-" + (values - 1));
+        // outputs that an invalid value was input, alongside the parameter in which they must follow
+        v2 = Convert.ToInt32(Console.ReadLine());
+        // allows for another input to be stored under v2, until a valid value is entered
+    }
+    Console.WriteLine("Your answer is: " + (ints[v1] - ints[v2]));
+    // Subtracts v2 from v1 and outputs the answer
+}
+else if (operation == 5)
+// detects whether operation equals 5
+{
+    int total = ints.Sum();
+    // gives the sum function a variable name under total
+    Console.WriteLine("The sum of the all numbers is: " + total);
+    // prints the sum in an output
+}
