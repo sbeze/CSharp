@@ -1,0 +1,5 @@
+
+Console.WriteLine("Please enter a number");
+int n = Convert.ToInt32(Console.ReadLine());
+int calc = n * (n + 1) / 2;
+Console.WriteLine(calc);
