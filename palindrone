@@ -1,0 +1,24 @@
+using System.Linq;
+
+Console.WriteLine("Please enter a word");
+string userinput = Console.ReadLine();
+int length = userinput.Length;
+string[] characterlist = new string[length];
+for (int i = 0; i < length; i++)
+{
+    characterlist[i] = Convert.ToString(userinput[i]);
+}
+string[] reversedList = new string[length];
+for (int i = 0; i < length; i++)
+{
+    reversedList[i] = characterlist[length - 1 - i];
+}
+if (reversedList.SequenceEqual(characterlist))
+{
+    Console.WriteLine("This word is a palindrome");
+    Console.WriteLine(string.Join("", characterlist));
+}
+else
+{
+    Console.WriteLine("This word is not a palindrome");
+}
