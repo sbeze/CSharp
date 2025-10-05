@@ -1,13 +1,13 @@
-using System.IO;
 
 
-
-
-
-Console.WriteLine("Please enter your name");
-File.Create("Username.txt");
+Console.WriteLine("Please enter your name:");
 string userinput = Console.ReadLine();
-File.AppendText(userinput);
+
+File.Create("Username.txt");
+File.AppendAllText("Username.txt", userinput + Environment.NewLine);
+
+Console.WriteLine("Done! Text written to Username.txt");
+
 
 string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Username.txt");
 Console.WriteLine($"The file will be saved at: {filePath}");
