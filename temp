@@ -1,0 +1,37 @@
+using System;
+
+double temp = Convert.ToDouble(Console.ReadLine());
+
+static double temperatureConverter(double temp)
+{
+    var firstresult = temp * 1.8;
+    var finalresult = firstresult + 32;
+
+    return finalresult;
+}
+
+Console.WriteLine(temperatureConverter(temp));
+if (temp < 0)
+{
+    Console.WriteLine("Freezing Weather");
+}
+else if (temp >= 0 && temp < 10)
+{
+    Console.WriteLine("Very cold weather");
+}
+else if (temp > 10 && temp < 20)
+{
+    Console.WriteLine("Cold Weather");
+}
+else if (temp > 20 && temp < 30)
+{
+    Console.WriteLine("Normal in temp");
+}
+else if (temp > 30 && temp < 40)
+{
+    Console.WriteLine("Hot Weather");
+}
+else if (temp > 40)
+{
+    Console.WriteLine("Very Hot weather");
+}
