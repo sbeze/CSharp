@@ -1,0 +1,74 @@
+// ask for name
+// ask for seat number
+// check whether seat number is valid
+// check whether seat number is taken
+//store in file if valid
+// cannot proceed if user doesnt enter valid seat
+// 5 seats in each row a-f 
+using System;
+using System;
+
+bool temp = false;
+
+int A = 0;
+int B = 1;
+int C = 2;
+int D = 3;
+int E = 4;
+int F = 5;
+
+char[] availableRows = { 'A', 'B', 'C', 'D', 'E', 'F' };
+char[] seatNumbers = { '1', '2', '3', '4', '5' };
+
+Console.WriteLine("Welcome to the cinema, what is your first name");
+string customerName = Console.ReadLine();
+
+string[,] cinemaSeats = new string[6, 5];
+for (int i = 0; i < 6; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        cinemaSeats[i, j] = "Available";
+    }
+}
+for (int i = 0; i < 6; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        var seatA = availableRows[i].ToString() + seatNumbers[j].ToString();
+        if (File.Exists($"{seatA}.txt"))
+        {
+            cinemaSeats[i, j] = "Booked";
+        }
+    }
+}
+
+Console.WriteLine("Please enter which seat you would like from the following:");
+Console.WriteLine("Rows A-F");
+Console.WriteLine("Seats 1-5");
+string desiredSeat = Console.ReadLine();
+
+
+while (desiredSeat.Length > 2)
+{
+    Console.WriteLine("Please use the correct format");
+    desiredSeat = Console.ReadLine();
+}
+while (temp == false)
+{
+    int row = desiredSeat[0] - 'A';
+    int seat = desiredSeat[1] - '1';
+    if (availableRows.Contains(desiredSeat[0]) && seatNumbers.Contains(desiredSeat[1]) && cinemaSeats[row,seat] == "Available")
+    {
+        File.WriteAllText($"{desiredSeat}.txt", $"{customerName} Has booked this seat");
+        Console.WriteLine($"Seat {desiredSeat} booked for {customerName}");
+        temp = true;
+    }
+    else
+    {
+        Console.WriteLine("Please enter a valid seat");
+        desiredSeat = Console.ReadLine();
+    }
+}
+
+
